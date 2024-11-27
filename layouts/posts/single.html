@@ -59,6 +59,8 @@
       </div>
     </header>
 
+  {{ $showGallery := .Page.Params.gallery | default false }}
+  {{ if $showGallery }}
   {{ with .Resources.ByType "image" }}
     <div class="article-gallery">
       {{ range $index, $value := . }}
@@ -67,6 +69,7 @@
       </a>
       {{ end }}
     </div>
+  {{ end }}
   {{ end }}
     {{ if .Site.Params.tocInline }}
     <div id="toc">
